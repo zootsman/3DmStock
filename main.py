@@ -78,11 +78,9 @@ async def show_model(callback: CallbackQuery):
     await callback.message.delete()
 
     await bot.send_photo(
-        callback.from_user.id,
-        row["image_file_id"],
-        caption=f"<b>{row['title']}</b>
-
-{row['description']}"
+        chat_id=callback.from_user.id,
+        photo=row["image_file_id"],
+        caption=f"<b>{row['title']}</b>\n\n{row['description']}"
     )
 
     await bot.send_document(
